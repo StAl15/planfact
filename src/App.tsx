@@ -1,7 +1,7 @@
 const App = () => {
 
   return (
-    <h1>Planfact</h1>
+    <h1 className="font-mulish text-accent">Planfact</h1>
   )
 }
 
