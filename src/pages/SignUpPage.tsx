@@ -1,9 +1,4 @@
 import {FlexColumn} from "../components/PrimaryComponents/FlexColumn";
-import {Button, Checkbox, FormControl, FormGroup, InputLabel, TextField, Typography} from "@mui/material";
-import {FlexRow} from "../components/PrimaryComponents/FlexRow";
-import {useState} from "react";
-import {Link} from "react-router-dom";
-import Label from "../components/PrimaryComponents/Label";
 import {SignupHeader} from "../components/Layouts/SignUpLayout/layouts/SignupHeader";
 import {SignupInputForms} from "../components/Layouts/SignUpLayout/layouts/SignupInputForms";
 import {SignupBottom} from "../components/Layouts/SignUpLayout/layouts/SignupBottom";

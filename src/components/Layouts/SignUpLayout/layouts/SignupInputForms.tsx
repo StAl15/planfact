@@ -4,6 +4,7 @@ import {useForm} from "react-hook-form";
 import {FlexRow} from "../../../PrimaryComponents/FlexRow";
 import {useState} from "react";
 import {FlexColumn} from "../../../PrimaryComponents/FlexColumn";
+import {useIMask} from "react-imask";
 
 export const SignupInputForms = () => {
 
@@ -13,8 +14,17 @@ export const SignupInputForms = () => {
         formState: {errors}
     } = useForm();
 
-    const onSubmit = (data: any) => {
-        console.log(data);
+    const disableReg = () => {
+        return !!errors.accepted ||
+            !!errors.phone ||
+            !!errors.name ||
+            !!errors.email ||
+            !acceptPrivacy
+    }
+    const onSubmit = (data) => {
+        !disableReg()
+            ? alert('OK')
+            : alert('BAD');
     };
 
     const [acceptPrivacy, setAcceptPrivacy] = useState(false);
@@ -22,7 +32,7 @@ export const SignupInputForms = () => {
 
     return (
         <>
-            <FormGroup className={'w-full space-y-4'} onSubmit={handleSubmit(onSubmit)}>
+            <form className={'w-full space-y-4'} onSubmit={handleSubmit(onSubmit)}>
                 <FormControl className={'w-full items-start space-y-2'}>
                     <Label htmlFor={'name'}>
                         ВАШЕ ИМЯ
@@ -31,7 +41,7 @@ export const SignupInputForms = () => {
                                error={!!errors.name}  {...register('name', {required: true})}
                                id={'name'}
                                className={'w-full'}
-                               placeholder={'Напишите имя...'}/>
+                               placeholder={'Иванов Иван Иванович'}/>
                 </FormControl>
                 <FormControl className={'w-full items-start space-y-2'}>
                     <Label htmlFor={'email'}>
@@ -44,7 +54,7 @@ export const SignupInputForms = () => {
                         pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/
                     })}
                         id={'email'} className={'w-full'}
-                        placeholder={'Напишите почту...'}/>
+                        placeholder={'mail@inbox.com'}/>
                 </FormControl>
                 <FormControl className={'w-full items-start space-y-2'}>
                     <Label htmlFor={'phone'}>
@@ -53,10 +63,12 @@ export const SignupInputForms = () => {
                     <TextField
                         color={'secondary'}
                         error={!!errors.phone}
-                        {...register('phone', {required: true})}
+                        {...register('phone',
+                            {required: true,}
+                        )}
                         id={'phone'}
                         className={'w-full'}
-                        placeholder={'Напишите телефон...'}/>
+                        placeholder={'+7 (000) 000-00-00'}/>
                 </FormControl>
 
                 <FlexColumn className={'items-center space-y-4'}>
@@ -71,15 +83,21 @@ export const SignupInputForms = () => {
                         </FormControl>
 
                         <label className={'cursor-pointer'} htmlFor={'accept'}>
-                            <Typography fontFamily={'mulish'} color={'#1F204180'} fontWeight={'300'} align={"left"}
-                                        variant={'subtitle2'}>
-                                Я принимаю условия <span className={'text-[#2C9BA3]'}>Пользовательского соглашения и Политики
-                        Конфиденциальности</span>
+                            <Typography
+                                fontFamily={'mulish'}
+                                color={'#1F204180'}
+                                fontWeight={'300'}
+                                align={"left"}
+                                variant={'subtitle2'}>
+                                Я принимаю условия <span className={'text-[#2C9BA3]'}>
+                                Пользовательского соглашения и Политики Конфиденциальности
+                            </span>
                             </Typography>
                         </label>
                     </FlexRow>
 
                     <Button
+                        disabled={disableReg()}
                         color={'primary'}
                         type={'submit'}
                         className={'bg-[#1F204180] w-[20.3125rem]'} variant="contained"
@@ -89,7 +107,7 @@ export const SignupInputForms = () => {
 
                 </FlexColumn>
 
-            </FormGroup>
+            </form>
 
         </>
     );
