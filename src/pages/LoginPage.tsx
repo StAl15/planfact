@@ -1,7 +1,7 @@
 import { OutlinedInput, FormControl } from '@mui/material'
-import Button from '../components/Button'
-import AuthLayout from '../components/Layouts/AuthLayout'
-import Label from '../components/Label'
+import Button from '../components/PrimaryComponents/Button'
+import AuthLayout from '../components/Layouts/LoginLayout/AuthLayout'
+import Label from '../components/PrimaryComponents/Label'
 import { Link } from 'react-router-dom'
 
 const LoginPage = () => {
