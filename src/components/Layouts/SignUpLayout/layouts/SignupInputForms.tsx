@@ -1,10 +1,9 @@
-import {Button, Checkbox, FormControl, FormGroup, TextField, Typography} from "@mui/material";
+import {Button, Checkbox, FormControl, TextField, Typography} from "@mui/material";
 import Label from "../../../PrimaryComponents/Label";
 import {useForm} from "react-hook-form";
 import {FlexRow} from "../../../PrimaryComponents/FlexRow";
 import {useState} from "react";
 import {FlexColumn} from "../../../PrimaryComponents/FlexColumn";
-import {useIMask} from "react-imask";
 
 export const SignupInputForms = () => {
 
@@ -100,7 +99,8 @@ export const SignupInputForms = () => {
                         disabled={disableReg()}
                         color={'primary'}
                         type={'submit'}
-                        className={'bg-[#1F204180] w-[20.3125rem]'} variant="contained"
+                        className={'bg-[#1F204180] w-[20.3125rem]'}
+                        variant="contained"
                         disableElevation>
                         Начать бесплатное тестирование
                     </Button>
