@@ -1,11 +1,11 @@
 import {SwitchIndicator} from "../SwitchIndicator";
 import {IndicatorDashboardLayout} from "../IndicatorDashboard/IndicatorDashboardLayout";
-import React from "react";
+import React, {FC} from "react";
 
-export const ItemIndicatorLayout = () => {
+export const ItemIndicatorLayout:FC<{name: string}> = ({name}) => {
     return (
         <>
-            <SwitchIndicator/>
+            <SwitchIndicator name={name}/>
             <IndicatorDashboardLayout/>
         </>
     );

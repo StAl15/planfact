@@ -1,13 +1,13 @@
 import {FlexRow} from "../../PrimaryComponents/FlexRow";
 import {Button, IconButton, Typography} from "@mui/material";
-import React from "react";
+import React, {FC} from "react";
 
-export const SwitchIndicator = () => {
+export const SwitchIndicator:FC<{name: string}> = ({name}) => {
     return (
         <FlexRow className={'space-x-10 py-4 border-b-[1px] border-b-[#C7C7CF] -mt-4 w-full items-center'}>
             <FlexRow className={'items-center space-x-2'}>
                 <Typography fontWeight={600} fontSize={'1.375rem'} fontFamily={'mulish'}>
-                    Прибыль, ₽
+                    {name}, ₽
                 </Typography>
                 <IconButton>
                     <img src={'images/octicon_question-24.svg'}/>

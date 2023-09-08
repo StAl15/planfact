@@ -14,10 +14,12 @@ export const IndicatorsPage = () => {
         <FlexColumn className={'w-full h-full space-y-4'}>
             <FiltersIndicators/>
             <FlexColumn className={'space-y-10'}>
-                <ItemIndicatorLayout/>
-                <ItemIndicatorLayout/>
-                <ItemIndicatorLayout/>
-                <ItemIndicatorLayout/>
+                <ItemIndicatorLayout name={'Прибыль'}/>
+                <ItemIndicatorLayout name={"Денежный поток"}/>
+                <ItemIndicatorLayout name={"Остатки на счетах"}/>
+                <ItemIndicatorLayout name={"Структура платежей"}/>
+                <ItemIndicatorLayout name={"Самые доходные клиенты"}/>
+                <ItemIndicatorLayout name={"Прибыльность проектов"}/>
             </FlexColumn>
 
 
