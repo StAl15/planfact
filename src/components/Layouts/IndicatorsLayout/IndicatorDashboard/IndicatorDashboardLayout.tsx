@@ -1,6 +1,5 @@
 import {FlexColumn} from "../../../PrimaryComponents/FlexColumn";
 import {FlexRow} from "../../../PrimaryComponents/FlexRow";
-import {Typography} from "@mui/material";
 import React from "react";
 import {IndicatorItem} from "./IndicatorItem";
 import {
@@ -66,7 +65,7 @@ export const IndicatorDashboardLayout = () => {
                 data: labels.map(() => faker.datatype.number({min: -1000, max: 1000})),
                 borderColor: 'rgb(53, 162, 235)',
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
-                hidden: true
+                hidden: true,
             },
             {
                 label: 'Чистая прибыль',

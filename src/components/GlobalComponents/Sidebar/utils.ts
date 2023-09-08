@@ -1,4 +1,5 @@
 import {IndicatorsPage} from "../../../pages/IndicatorsPage";
+import {OperationsPage} from "../../../pages/OperationsPage";
 
 export const PRIVATE_ROUTES = [
     {
@@ -11,6 +12,7 @@ export const PRIVATE_ROUTES = [
         icon: 'images/operations.svg',
         title: 'Операции',
         path: '/operations',
+        element: OperationsPage
     },
     {
         icon: 'images/transactions.svg',
