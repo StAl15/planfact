@@ -7,21 +7,19 @@ import {
     Chart as ChartJS,
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    BarElement,
     Title,
     Tooltip,
     Legend,
 } from 'chart.js';
-import {Line} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 import {faker} from "@faker-js/faker";
 
 export const IndicatorDashboardLayout = () => {
     ChartJS.register(
         CategoryScale,
         LinearScale,
-        PointElement,
-        LineElement,
+        BarElement,
         Title,
         Tooltip,
         Legend
@@ -103,8 +101,8 @@ export const IndicatorDashboardLayout = () => {
                 <IndicatorItem name={'Рентабельность, %'}/>
                 <IndicatorItem name={'Дивиденды'}/>
             </FlexColumn>
-            <FlexColumn className={'w-2/3 bg-white h-full'}>
-                <Line className={'w-full'} options={options} data={data}/>
+            <FlexColumn className={'w-2/3 bg-white h-full rounded-lg p-4'}>
+                <Bar className={'w-full'} options={options} data={data}/>
             </FlexColumn>
         </FlexRow>
     );
