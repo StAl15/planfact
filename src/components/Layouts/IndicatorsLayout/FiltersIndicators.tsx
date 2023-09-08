@@ -11,7 +11,7 @@ export const FiltersIndicators = () => {
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
 
-            <FlexRow className={'border-b-[1px] border-b-[#C7C7CF] w-full pb-2 justify-between items-center'}>
+            <FlexRow className={'w-full border-b-[1px] border-b-[#C7C7CF] pb-4 justify-between items-center'}>
 
                 <FlexColumn className={'w-[16.25rem]'}>
                     <Typography fontWeight={800} fontSize={'1.5rem'} fontFamily={'mulish'}>НАЗВАНИЕ
