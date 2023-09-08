@@ -5,18 +5,17 @@ import GlobalWrapper from "./components/PrimaryComponents/GlobalWrapper";
 import {observer} from "mobx-react-lite";
 import {useContext} from "react";
 import UserStore from "./store/UserStore/UserStore";
-import {IndicatorsPage} from "./pages/IndicatorsPage";
 import {PRIVATE_ROUTES} from "./components/GlobalComponents/Sidebar/utils";
 
 const App = () => {
     const UserStorage = useContext(UserStore);
     return (
-        <GlobalWrapper>
-            <BrowserRouter>
+        <BrowserRouter>
+            <GlobalWrapper>
                 {UserStorage.isAuth
                     ? <Routes>
                         {PRIVATE_ROUTES.map(it =>
-                            <Route path={it.path} element={<IndicatorsPage/>}/>
+                            <Route path={it.path} element={<it.element/>}/>
                         )}
                         <Route path={'/*'} element={<Navigate to={'/indicators'} replace={true}/>}/>
                     </Routes>
@@ -26,8 +25,8 @@ const App = () => {
                         <Route path={'/*'} element={<Navigate to={'/login'} replace={true}/>}/>
                     </Routes>
                 }
-            </BrowserRouter>
-        </GlobalWrapper>
+            </GlobalWrapper>
+        </BrowserRouter>
 
     )
 }
