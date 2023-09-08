@@ -1,31 +1,20 @@
-import { OutlinedInput, FormControl } from '@mui/material'
-import Button from '../components/PrimaryComponents/Button'
-import AuthLayout from '../components/Layouts/LoginLayout/AuthLayout'
-import Label from '../components/PrimaryComponents/Label'
-import { Link } from 'react-router-dom'
+import LoginInputForms from '../components/Layouts/LoginLayout/layouts/LoginInputForms'
+import LoginHeader from '../components/Layouts/LoginLayout/layouts/LoginHeader'
+import LoginBottom from '../components/Layouts/LoginLayout/layouts/LoginBottom'
+
+import { FlexColumn } from '../components/PrimaryComponents/FlexColumn'
 
 const LoginPage = () => {
   return (
-    <AuthLayout>
-      <div className='text-center mb-[45px] px-[25px]'>
-        <h1 className='font-extrabold text-[28px] mb-[15px]'>Вход в систему</h1>
-        <p className='font-semibold text-[22px]'>Заполните форму и оцените <br /> все возможности ПланФакта</p>
-      </div>
-      <form action="" className='flex flex-col gap-[25px]'>
-        <FormControl>
-          <Label>Ваша почта</Label>
-          <OutlinedInput placeholder='E-mail' autoFocus fullWidth sx={{ height: "45px" }} />
-        </FormControl>
-        <FormControl>
-          <Label>Ваш пароль</Label>
-          <OutlinedInput placeholder='Пароль' fullWidth sx={{ height: "45px" }} />
-        </FormControl>
-        <Button>Войти</Button>
-      </form>
-      <div className='text-center font-normal mt-[40px]'>
-        <p>Нет аккаунта? <Link to='/signup' className='text-accent'>Зарегистрируйтесь</Link></p>
-      </div>
-    </AuthLayout>
+    <FlexColumn
+      className={'space-y-4 items-center text-center p-10 w-fit h-fit bg-white rounded-lg self-center absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[50%]'}
+    >
+      <FlexColumn className={'items-center text-center space-y-4 w-[25rem]'}>
+        <LoginHeader />
+        <LoginInputForms />
+        <LoginBottom />
+      </FlexColumn>
+    </FlexColumn>
   )
 }
 

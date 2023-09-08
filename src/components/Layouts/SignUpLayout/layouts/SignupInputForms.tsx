@@ -28,7 +28,6 @@ export const SignupInputForms = () => {
 
     const [acceptPrivacy, setAcceptPrivacy] = useState(false);
 
-
     return (
         <>
             <form className={'w-full space-y-4'} onSubmit={handleSubmit(onSubmit)}>
@@ -99,16 +98,14 @@ export const SignupInputForms = () => {
                         disabled={disableReg()}
                         color={'primary'}
                         type={'submit'}
-                        className={'bg-[#1F204180] w-[20.3125rem]'}
+                        className={'bg-[#1F204180] w-[20.3125rem] h-[45px]'}
+                        sx={{borderRadius: "10px"}}
                         variant="contained"
                         disableElevation>
                         Начать бесплатное тестирование
                     </Button>
-
                 </FlexColumn>
-
             </form>
-
         </>
     );
 };
