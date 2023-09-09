@@ -17,6 +17,9 @@ export default {
             },
             fontFamily: {
                 "mulish": ["Mulish", 'sans-serif'],
+            },
+            boxShadow: {
+                "headerShadow": "0px 4px 20px 0px rgba(0, 0, 0, 0.05)",
             }
         },
     },

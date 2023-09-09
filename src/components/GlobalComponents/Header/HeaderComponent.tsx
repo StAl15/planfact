@@ -6,7 +6,7 @@ import {MailPartComponent} from "./MailPartComponent";
 
 export const HeaderComponent = () => {
     return (
-        <FlexRow className={'fixed top-0 left-0 w-screen h-[5rem] justify-center bg-white shadow-lg p-6 z-10'}>
+        <FlexRow className={'fixed top-0 left-0 w-screen h-[5rem] justify-center bg-white shadow-headerShadow p-6 z-10'}>
             <FlexRow className={'w-[80rem] items-center justify-evenly'}>
                 <HelpPartHeader/>
                 <BalancePartHeader/>
