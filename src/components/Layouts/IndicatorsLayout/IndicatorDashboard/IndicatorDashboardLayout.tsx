@@ -1,6 +1,6 @@
 import {FlexColumn} from "../../../PrimaryComponents/FlexColumn";
 import {FlexRow} from "../../../PrimaryComponents/FlexRow";
-import React from "react";
+import React, {FC, useEffect} from "react";
 import {IndicatorItem} from "./IndicatorItem";
 import {
     Chart as ChartJS,
@@ -13,8 +13,21 @@ import {
 } from 'chart.js';
 import {Bar} from 'react-chartjs-2';
 import {faker} from "@faker-js/faker";
+import {MONTHS} from "../utils";
+import {twMerge} from "tw-merge";
+import clsx from "clsx";
 
-export const IndicatorDashboardLayout = () => {
+export interface IIndicatorDashboardLayoutProps {
+    itemsData?: {
+        name: string,
+        data: any[],
+        planValue?: number
+    }[],
+    hideHelpers?: boolean;
+    labels: string[];
+}
+
+export const IndicatorDashboardLayout: FC<IIndicatorDashboardLayoutProps> = ({labels, itemsData, hideHelpers = false}) => {
     ChartJS.register(
         CategoryScale,
         LinearScale,
@@ -37,71 +50,26 @@ export const IndicatorDashboardLayout = () => {
         },
     };
 
-    const labels = [
-        'Январь',
-        'Февраль',
-        'Март',
-        'Апрель',
-        'Май',
-        'Июнь',
-        'Июль',
-        'Август',
-        'Сентябрь',
-        'Ноябрь',
-        'Декабрь',
-    ];
-
     const data = {
-        labels,
-        datasets: [
-            {
-                label: 'Доходы',
-                data: labels.map(() => faker.datatype.number({min: -1000, max: 1000})),
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            },
-            {
-                label: 'Расходы',
-                data: labels.map(() => faker.datatype.number({min: -1000, max: 1000})),
-                borderColor: 'rgb(53, 162, 235)',
-                backgroundColor: 'rgba(53, 162, 235, 0.5)',
-                hidden: true,
-            },
-            {
-                label: 'Чистая прибыль',
-                data: labels.map(() => faker.datatype.number({min: -1000, max: 1000})),
-                borderColor: 'green',
-                backgroundColor: 'green',
-                hidden: true
-            },
-            {
-                label: 'Рентабельность, %',
-                data: labels.map(() => faker.datatype.number({min: -1000, max: 1000})),
-                borderColor: 'yellow',
-                backgroundColor: 'yellow',
-                hidden: true
-            },
-            {
-                label: 'Дивиденды',
-                data: labels.map(() => faker.datatype.number({min: -1000, max: 1000})),
-                borderColor: 'pink',
-                backgroundColor: 'pink',
-                hidden: true
-            },
-        ],
+        labels: labels,
+        datasets: itemsData?.map((it, idx) => {
+            return {
+                label: it.name,
+                data: it.data,
+            }
+        }),
     };
+
 
     return (
         <FlexRow className={'space-x-10 justify-between w-full items-start'}>
-            <FlexColumn className={'w-1/3 space-y-6'}>
-                <IndicatorItem name={'Доходы'}/>
-                <IndicatorItem name={'Расходы'}/>
-                <IndicatorItem name={'Чистая прибыль'}/>
-                <IndicatorItem name={'Рентабельность, %'}/>
-                <IndicatorItem name={'Дивиденды'}/>
-            </FlexColumn>
-            <FlexColumn className={'w-2/3 bg-white h-full rounded-lg p-4'}>
-                <Bar className={'w-full'} options={options} data={data}/>
+            {!hideHelpers && <FlexColumn className={'w-1/3 space-y-6'}>
+                {itemsData?.map((it, idx) =>
+                    <IndicatorItem name={it.name} currentValue={it.data.at(-1)} planValue={it.planValue}/>
+                )}
+            </FlexColumn>}
+            <FlexColumn className={twMerge(clsx('bg-white h-full rounded-lg p-4', hideHelpers ? 'w-full' : 'w-2/3'))}>
+                <Bar className={'w-full h-full'} options={options} data={data}/>
             </FlexColumn>
         </FlexRow>
     );
