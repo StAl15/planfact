@@ -15,7 +15,7 @@ const FilterComponent: FC = () => {
   return (
     <>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <div className='min-w-[220px]'>
+        <div className='min-w-[220px] max-h-[90vh] overflow-auto font-mulish'>
           <FilterHeader filterCount={6} />
           <FlexColumn>
             <OperationTypeFilter />

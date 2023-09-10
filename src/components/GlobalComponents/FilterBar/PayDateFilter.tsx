@@ -8,7 +8,7 @@ const PayDateFilter = () => {
     <>
       <FilterCaption name="Дата оплаты" />
       <FormGroup>
-        <FormControlLabel control={<Checkbox size="medium" sx={{ color: "#8B91A1" }} />} label="Подтверждена" />
+        <FormControlLabel sx={{marginBottom: "-15px"}} control={<Checkbox size="medium" sx={{ color: "#8B91A1" }} />} label="Подтверждена" />
         <FormControlLabel control={<Checkbox size="medium" sx={{ color: "#8B91A1" }} />} label="Не подтверждена" />
       </FormGroup>
       <PeriodDatePicker isLabel={false} />

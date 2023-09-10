@@ -1,5 +1,5 @@
 import { FlexRow } from '../../PrimaryComponents/FlexRow'
-import TotalString from './TotalString'
+import TotalString from './components/TotalString'
 
 const OperationBottom = () => {
   return (

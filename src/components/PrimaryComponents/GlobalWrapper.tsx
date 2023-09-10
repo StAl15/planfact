@@ -24,7 +24,7 @@ const GlobalWrapper: FC<IGlobalWrapperProps> = (props) => {
             {UserStorage.isAuth && <HeaderComponent/>}
             <FlexRow className={'justify-between'}>
                 {UserStorage.isAuth && <SidebarComponent/>}
-                <FlexColumn className={UserStorage.isAuth && 'mt-[5rem] ml-[7.5rem] p-6 w-full h-full overflow-auto'}>
+                <FlexColumn className={UserStorage.isAuth && 'mt-[5rem] ml-[7.5rem] p-6 w-full overflow-auto'}>
                     {props.children}
                 </FlexColumn>
 

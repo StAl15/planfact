@@ -7,7 +7,7 @@ export const OperationsPage = () => {
   return (
     <div className="flex">
       <FilterComponent />
-      <div className="w-full flex flex-col min-h-full">
+      <div className="w-full flex flex-col h-full ml-[15px]">
         <OperationHeader />
         <OperationMain />
         <OperationBottom />

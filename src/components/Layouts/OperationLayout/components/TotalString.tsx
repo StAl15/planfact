@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import { FC } from 'react'
-import { FlexRow } from '../../PrimaryComponents/FlexRow'
+import { FlexRow } from '../../../PrimaryComponents/FlexRow'
 
 export interface TotalStringProps {
   count?: number,
