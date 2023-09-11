@@ -60,9 +60,9 @@ const OptionsFilter = () => {
         </Select>
         <Label>от</Label>
         <div className="flex gap-x-[10px] items-center">
-          <TextField sx={{ width: "85px", backgroundColor: "#fff" }} placeholder="500">0</TextField>
+          <TextField sx={{ backgroundColor: "#fff" }} placeholder="500">0</TextField>
           <p>-</p>
-          <TextField sx={{ width: "85px", backgroundColor: "#fff" }} placeholder="10000">1</TextField>
+          <TextField sx={{ backgroundColor: "#fff" }} placeholder="10000">1</TextField>
         </div>
       </div>
     </>

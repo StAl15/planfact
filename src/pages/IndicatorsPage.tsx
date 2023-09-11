@@ -20,7 +20,7 @@ export const IndicatorsPage = () => {
     const [sortProfitPropjectOption, setSortProfitPropjectOption] = useState(0);
 
     return (
-        <FlexColumn className={'w-full h-full space-y-4'}>
+        <FlexColumn className={'w-full h-full space-y-4 p-6'}>
             <FiltersIndicators/>
             <FlexColumn className={'space-y-10'}>
                 <ItemIndicatorLayout

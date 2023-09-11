@@ -2,95 +2,100 @@ import { useMemo } from 'react'
 import { MaterialReactTable } from 'material-react-table'
 import { MRT_ColumnDef } from 'material-react-table';
 
-// date account type kontragent article project deal sum 
-// export interface OperationTableFields {
-//   date: string, 
-//   account: string,
-//   type: string,
-//   kontragent: string,
-//   article: string,
-//   project: string,
-//   deal: string,
-//   sum: {
-//     plus: number,
-//     minus: number
-//   },
-// }
+import EastIcon from '@mui/icons-material/East';
+import WestIcon from '@mui/icons-material/West';
+import SyncAltIcon from '@mui/icons-material/SyncAlt';
 
-// const data: OperationTableFields[] = [
-//   {
-//     date: "05 июнь 2023",
-//     account: "Сбербанк",
-//     type: "<",
-//     kontragent: "ФСС",
-//     article: "Услуги [Доходы]",
-//     project: "Кв.7 - Стандарт (План)", 
-//     deal: "",
-//     sum: {
-//       plus: 12500,
-//       minus: 12500,
-//     },
-//   },
-//   {
-//     date: "05 июнь 2023",
-//     account: "Сбербанк",
-//     type: "<",
-//     kontragent: "ФСС",
-//     article: "Услуги [Доходы]",
-//     project: "Кв.7 - Стандарт (План)", 
-//     deal: "",
-//     sum: {
-//       plus: 12500,
-//       minus: 12500,
-//     },
-//   },
-//   {
-//     date: "05 июнь 2023",
-//     account: "Сбербанк",
-//     type: "<",
-//     kontragent: "ФСС",
-//     article: "Услуги [Доходы]",
-//     project: "Кв.7 - Стандарт (План)", 
-//     deal: "",
-//     sum: {
-//       plus: 12500,
-//       minus: 12500,
-//     },
-//   },
-// ]
 
-interface Person {
-  name: string;
-  age: number;
+interface TableHeadersProps {
+  date: string,
+  account: string,
+  type: React.ReactNode,
+  kontragent: string,
+  article: string,
+  project?: string,
+  deal?: string,
+  sum: number,
 }
 
-//mock data - strongly typed if you are using TypeScript (optional, but recommended)
-const data: Person[] = [
+const data: TableHeadersProps[] = [
   {
-    name: 'John',
-    age: 30,
+    date: "05 июнь 2023",
+    account: "Сбербанк",
+    type: <EastIcon style={{ color: "#da1c1c" }} />,
+    kontragent: "[Начисления]",
+    article: "Услуги [Доходы]",
+    project: "",
+    deal: "",
+    sum: 12500
   },
   {
-    name: 'Sara',
-    age: 25,
+    date: "05 июнь 2023",
+    account: "Сбербанк",
+    type: <WestIcon style={{ color: "#27ae60" }} />,
+    kontragent: "[Начисления]",
+    article: "Услуги [Доходы]",
+    project: "",
+    deal: "",
+    sum: 12500
+  },
+  {
+    date: "05 июнь 2023",
+    account: "Сбербанк",
+    type: <SyncAltIcon style={{ color: "#8b91a1" }} />,
+    kontragent: "[Начисления]",
+    article: "Услуги [Доходы]",
+    project: "",
+    deal: "",
+    sum: 12500
   },
 ];
 
 const OperationTable = () => {
 
-  const columns = useMemo<MRT_ColumnDef<Person>[]>(
+  const columns = useMemo<MRT_ColumnDef<TableHeadersProps>[]>(
     () => [
       {
-        accessorKey: 'name', //simple recommended way to define a column
-        header: 'Name',
-        muiTableHeadCellProps: { sx: { color: 'green' } }, //custom props
+        accessorKey: 'date',
+        header: 'Дата',
+        muiTableHeadCellProps: { sx: { color: '#000', fontWeight: 400, fontSize: "16px" } },
       },
       {
-        accessorFn: (originalRow) => originalRow.age, //alternate way
-        id: 'age', //id required if you use accessorFn instead of accessorKey
-        header: 'Age',
-        Header: <i style={{ color: 'red' }}>Age</i>, //optional custom markup
+        accessorKey: 'account',
+        header: 'Счет',
+        muiTableHeadCellProps: { sx: { color: '#8B91A1', fontWeight: 400, fontSize: "16px" } },
       },
+      {
+        accessorKey: 'type',
+        header: 'Тип',
+        muiTableHeadCellProps: { sx: { color: '#8B91A1', fontWeight: 400, fontSize: "16px" } },
+      },
+      {
+        accessorKey: 'kontragent',
+        header: 'Контрагент',
+        muiTableHeadCellProps: { sx: { color: '#8B91A1', fontWeight: 400, fontSize: "16px" } },
+      },
+      {
+        accessorKey: 'article',
+        header: 'Статья',
+        muiTableHeadCellProps: { sx: { color: '#8B91A1', fontWeight: 400, fontSize: "16px" } },
+      },
+      {
+        accessorKey: 'project',
+        header: 'Проект',
+        muiTableHeadCellProps: { sx: { color: '#8B91A1', fontWeight: 400, fontSize: "16px" } },
+      },
+      {
+        accessorKey: 'deal',
+        header: 'Сделка',
+        muiTableHeadCellProps: { sx: { color: '#8B91A1', fontWeight: 400, fontSize: "16px" } },
+      },
+      {
+        accessorKey: 'sum',
+        header: 'Сумма',
+        muiTableHeadCellProps: { sx: { color: '#8B91A1', fontWeight: 400, fontSize: "16px" } },
+      },
+
     ],
     [],
   );
@@ -100,8 +105,13 @@ const OperationTable = () => {
       columns={columns}
       data={data}
       enableRowSelection //enable some features
-      enableColumnOrdering
-      enableGlobalFilter={false} //turn off a feature
+      enableColumnOrdering={false}
+      enableGlobalFilter={false}
+      enableColumnActions={false}
+      enableFullScreenToggle={false}
+      enableDensityToggle={false}
+      enableFilters={false}
+      enableHiding={false}
     />
   )
 }
