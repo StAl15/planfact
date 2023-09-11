@@ -1,12 +1,6 @@
 import {FlexColumn} from "../components/PrimaryComponents/FlexColumn";
 import {FiltersIndicators} from "../components/Layouts/IndicatorsLayout/FiltersIndicators";
-import {FlexRow} from "../components/PrimaryComponents/FlexRow";
-import {Button, IconButton, Typography} from "@mui/material";
 import React, {useState} from "react";
-import {SwitchIndicator} from "../components/Layouts/IndicatorsLayout/SwitchIndicator";
-import {
-    IndicatorDashboardLayout
-} from "../components/Layouts/IndicatorsLayout/IndicatorDashboard/IndicatorDashboardLayout";
 import {ItemIndicatorLayout} from "../components/Layouts/IndicatorsLayout/ItemIndicatorLayout/ItemIndicatorLayout";
 import {CLIENTS, MONTHS, PROJECTS} from "../components/Layouts/IndicatorsLayout/utils";
 import {faker} from "@faker-js/faker";

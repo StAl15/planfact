@@ -14,7 +14,6 @@ export const CustomDateRangePicker = () => {
     const [dateEnd, setDateEnd] = useState(null);
 
     return (
-        // <LocalizationProvider dateAdapter={AdapterDayjs}>
             <FlexColumnStart>
                 <Label>Период</Label>
                 <FlexRow className={'justify-between space-x-2'}>
@@ -26,6 +25,5 @@ export const CustomDateRangePicker = () => {
                                 disableFuture={true} className={'w-[11rem]'} sx={{backgroundColor: '#FFF'}}/>
                 </FlexRow>
             </FlexColumnStart>
-        // </LocalizationProvider>
     );
 };
