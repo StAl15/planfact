@@ -14,7 +14,7 @@ import OptionsFilter from './OptionsFilter'
 const FilterComponent: FC = () => {
   return (
     <>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
+      {/*<LocalizationProvider dateAdapter={AdapterDayjs}>*/}
         <div className='min-w-[220px] max-h-[90vh] overflow-auto font-mulish'>
           <FilterHeader filterCount={6} />
           <FlexColumn>
@@ -24,7 +24,7 @@ const FilterComponent: FC = () => {
             <OptionsFilter />
           </FlexColumn>
         </div>
-      </LocalizationProvider>
+      {/*</LocalizationProvider>*/}
     </>
   )
 }

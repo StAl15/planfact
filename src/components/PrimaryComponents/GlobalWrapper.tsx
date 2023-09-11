@@ -7,6 +7,8 @@ import {FlexRow} from "./FlexRow";
 import {SidebarComponent} from "../GlobalComponents/Sidebar/SidebarComponent";
 import {observer} from "mobx-react-lite";
 import UserStore from "../../store/UserStore/UserStore";
+import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
+import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
 
 export interface IGlobalWrapperProps {
     children?: ReactNode;
@@ -18,19 +20,22 @@ const GlobalWrapper: FC<IGlobalWrapperProps> = (props) => {
     const UserStorage = useContext(UserStore);
 
     return (
-        <FlexColumn
-            style={props.style}
-            className={twMerge(clsx('w-screen h-screen bg-[#EEEEEE] overflow-auto', props.className))}>
-            {UserStorage.isAuth && <HeaderComponent/>}
-            <FlexRow className={'justify-between'}>
-                {UserStorage.isAuth && <SidebarComponent/>}
-                <FlexColumn className={UserStorage.isAuth && 'mt-[5rem] ml-[7.5rem] p-6 w-full overflow-auto'}>
-                    {props.children}
-                </FlexColumn>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
 
-            </FlexRow>
+            <FlexColumn
+                style={props.style}
+                className={twMerge(clsx('w-screen h-screen bg-[#EEEEEE] overflow-auto', props.className))}>
+                {UserStorage.isAuth && <HeaderComponent/>}
+                <FlexRow className={'justify-between'}>
+                    {UserStorage.isAuth && <SidebarComponent/>}
+                    <FlexColumn className={UserStorage.isAuth && 'mt-[5rem] ml-[7.5rem] p-6 w-full overflow-auto'}>
+                        {props.children}
+                    </FlexColumn>
 
-        </FlexColumn>
+                </FlexRow>
+
+            </FlexColumn>
+        </LocalizationProvider>
     );
 };
 
