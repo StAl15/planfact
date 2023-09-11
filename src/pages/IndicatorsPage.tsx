@@ -182,8 +182,8 @@ export const IndicatorsPage = () => {
                                      ]}
                                      showSorts={true}
                                      hideHelpers={true}
-                                     activeId={mostProfitClientsOption}
-                                     setActiveId={setMostProfitClientsOption}
+                                     activeId={profitProjectsOptions}
+                                     setActiveId={setProfitProjectsOptions}
                                      activeSortId={sortProfitPropjectOption}
                                      setSortId={setSortProfitPropjectOption}
                                      name={'Прибыльность проктов'}/>
